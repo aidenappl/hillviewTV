@@ -1,0 +1,44 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0px;
+}
+
+// Absolute Centering
+
+.fullCenter {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.fullYCenter {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.fullXCenter {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+// Forceful Noselect
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
