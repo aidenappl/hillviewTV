@@ -6,6 +6,14 @@ This is an Angular project using a go backend for handling local auth, upload ->
 
 I challanged myself to get this entire stack done in one day, aiming to get it to a production ready state by 11/08 with periodic fixes, improvements, and changes past there. 
 
+## See a live version
+
+Check out https://hillview.tv for a live version of the site. 
+
+## Angular Deployment
+
+This site is using Vercel as the deployment manager. I'm also implementing SSR for SEO. 
+
 ## Feedback
 
 Let me know if you have any feedback on things I could do better with video handling. All code is open source to the community. 
