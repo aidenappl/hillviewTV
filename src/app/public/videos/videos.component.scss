@@ -25,17 +25,32 @@
             .video {
                 width: calc(16px * 35);
                 height: calc(9px * 35);
-                padding: 20px;
+                padding: 30px;
                 cursor: pointer;
+                overflow: hidden;
                 margin-bottom: 30px;
+                &:hover {
+                    .thumbnail {
+                        transform: scale(1.1);  
+                    }
+                    .content {
+                        color: rgba(255, 255, 255, 1);
+                    }
+                }
+                .content {
+                    color: rgba(255, 255, 255, 0);
+                    transition: .5s;
+                    width: 100%;
+                    height: 100%;
+                }
                 h1, p, a {
-                    color: white;
+                    color: inherit;
                     z-index: 10;
                     position: relative;
                 }
                 a {
                     position: absolute;
-                    bottom: 20px;
+                    bottom: 0px;
                 }
                 h1 {
                     font-size: 3rem;
@@ -56,6 +71,7 @@
                     width: 100%;
                     height: 100%;
                     position: absolute;
+                    transition: .3s;
                     top: 0px;
                     left: 0px;
                 }
