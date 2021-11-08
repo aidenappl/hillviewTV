@@ -13,6 +13,11 @@ const routes: Routes = [
       import('./public/videos/videos.module').then((m) => m.VideosModule),
   },
   {
+    path: 'videos/v/:id',
+    loadChildren: () =>
+      import('./public/watch/watch.module').then((m) => m.WatchModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./public/err404/err404.module').then((m) => m.Err404Module),
