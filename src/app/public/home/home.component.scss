@@ -143,3 +143,17 @@
         right: 0px !important;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .left-module {
+        h1, h2 {
+            font-size: 65px !important;
+        }
+        p {
+            font-size: 18px !important;
+            margin-top: 20px !important;
+            margin-bottom: 45px !important;
+        }
+    }
+    
+}
