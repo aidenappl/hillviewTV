@@ -1,0 +1,19 @@
+<div class="page-wrapper">
+    <app-navigation></app-navigation>
+    <div class="page-body">
+        <div class="header-section">
+            <h2 class="fullCenter">Our Content</h2>
+        </div>
+        <div class="video-container">
+            <div class="video-wrapper fullXCenter">
+                <div class="video" *ngFor="let video of videos" (click)="navigateToVideo(video.id)">
+                    <h1>{{video.title}}</h1>
+                    <p>{{video.description}}</p>
+                    <a href="/videos/v/{{video.id}}">Click To Watch ></a>
+                    <div class="bkg"></div>
+                    <div class="thumbnail reg-image" [ngStyle]="{'background-image': 'url('+video.thumbnail+')'}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

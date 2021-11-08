@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+import { VideosRoutingModule } from './videos-routing.module';
+import { VideosComponent } from './videos.component';
 import { NavModule } from 'src/app/components/navigation/navigation.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    VideosComponent,
   ],
   imports: [
     CommonModule,
     NavModule,
-    HomeRoutingModule
+    VideosRoutingModule
   ]
 })
-export class HomeModule { }
+export class VideosModule { }
