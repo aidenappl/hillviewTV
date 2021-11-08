@@ -8,6 +8,7 @@
         h2 {
             font-size: 4rem;
             font-weight: 600;
+            text-align: center;
         }
     }
     .video-container {
@@ -80,6 +81,25 @@
                     left: 0px;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-section  {
+        height: 30% !important;
+        h2 {
+            font-size: 3rem !important;
+        }
+    }
+    .video {
+        width: calc(16px * 20) !important;
+        height: calc(9px * 20) !important;
+        a {
+            display: none;
+        }
+        p {
+            display: none;
         }
     }
 }
