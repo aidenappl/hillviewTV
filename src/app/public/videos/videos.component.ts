@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Video } from 'src/providers/video.provider';
+import { RequestService } from 'src/services/http/request.service';
 
 @Component({
   selector: 'app-videos',
@@ -9,24 +11,23 @@ import { Video } from 'src/providers/video.provider';
 
 export class VideosComponent implements OnInit {
 
-  videos: Video[] =  [
-    {
-      id: 1,
-      title: 'Video 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      thumbnail: 'https://img.youtube.com/vi/1Q-ZrWZk-_I/maxresdefault.jpg'
-    },
-    {
-      id: 2,
-      title: 'Video 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      thumbnail: 'https://img.youtube.com/vi/1Q-ZrWZk-_I/maxresdefault.jpg'
-    }
-  ]
+  videos: Video[] =  []
 
-  constructor() { }
+  constructor(
+    private request: RequestService
+  ) { }
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  async initialize(): Promise<void> {
+    try {
+      const response = await this.request.get(`${environment.API_URL}/list/videos`);
+      this.videos = (response as Video[]);
+    } catch(err) { 
+      console.log(err);
+    }
   }
 
   navigateToVideo(id: number): void {

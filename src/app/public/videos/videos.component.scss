@@ -30,6 +30,15 @@
                 cursor: pointer;
                 overflow: hidden;
                 margin-bottom: 30px;
+                svg {
+                    z-index: 11;
+                    fill: white;
+                    stroke: white;
+                    transition: .2s;
+                    width: 70px;
+                    height: 70px;
+                    opacity: 0.8;
+                }
                 &:hover {
                     .thumbnail {
                         transform: scale(1.1);  
@@ -39,6 +48,11 @@
                     }
                     .bkg {
                         opacity: 0.4;
+                    }
+                    svg {
+                        opacity: 0;
+                        width: 50px;
+                        height: 50px;
                     }
                 }
                 .content {
