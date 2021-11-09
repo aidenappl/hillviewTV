@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
-declare var MediaElementPlayer: any;
 
 @Component({
   selector: 'app-watch',
@@ -40,7 +39,7 @@ export class WatchComponent implements OnInit {
 
   async getVideo(id: string): Promise<Video> {
     try {
-      const response = await this.request.get(`${environment.API_URL}/get/videoByID/${id}`)
+      const response: any = await this.request.get(`${environment.API_URL}/get/videoByID/${id}`)
       return response as Video;
     } catch(err) { 
       throw err;
