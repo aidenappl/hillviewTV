@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
   routeToHome(): void {
     window.location.href = '/';
