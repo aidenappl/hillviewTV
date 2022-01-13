@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="video-body">
-                <video preload="none" controls="false" *ngIf="video.url.length > 0" poster="{{video.thumbnail}}">
+                <video autoplay preload="none" controls="false" *ngIf="video.url.length > 0" poster="{{video.thumbnail}}">
                     <source type="video/mp4" src="{{video.url}}" />
                 </video>
             </div>
