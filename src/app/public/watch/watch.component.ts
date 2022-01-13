@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as dayjs from 'dayjs';
 import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
@@ -12,6 +13,8 @@ import { RequestService } from 'src/services/http/request.service';
 export class WatchComponent implements OnInit {
 
   video: Video = new Vid();
+
+  shareLinkButton = 'Share Video';
 
   constructor(
     private route: ActivatedRoute,
@@ -26,8 +29,8 @@ export class WatchComponent implements OnInit {
     try {
       this.route.params.subscribe(async (params) => {
         if (params.id) {
-          console.log(params.id);
           this.video = await this.getVideo(params.id);
+          await this.formatVideo();
         } else {
           window.location.href = '/videos'
         }
@@ -44,6 +47,24 @@ export class WatchComponent implements OnInit {
     } catch(err) { 
       throw err;
     }
+  }
+
+  async formatVideo(): Promise<void> {
+    try {
+      this.video.display = {
+        inserted_at: dayjs(this.video.inserted_at).format("MMM DD, YYYY hh:mm A")
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  copyShareLink(): void {
+    this.shareLinkButton = 'Copied Link!';
+    navigator.clipboard.writeText(`https://hillview.tv/videos/v/${this.video.id}`)
+    setTimeout(() => {
+      this.shareLinkButton = 'Share Video';
+    }, 2500)
   }
 
 

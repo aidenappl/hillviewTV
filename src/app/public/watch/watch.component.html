@@ -1,8 +1,48 @@
-
+<!-- 
 <div class="page-wrapper">
     <a href="/videos" style="top: 20px; margin-left: 20px; position: relative;">< Back</a>
-    <br>
     <video preload="none" autoplay controls="false" class="fullCenter" *ngIf="video.url.length > 0">
         <source type="video/mp4" src="{{video.url}}" />
     </video>
+</div> -->
+
+
+<div class="page-wrapper">
+    <div class="header">
+        <div class="logo fullYCenter reg-image"></div>
+    </div>
+    <div class="page-body">
+        <div class="video-wrapper fullXCenter">
+            <div class="video-header">
+                <div class="back-btn fullYCenter" [routerLink]="'/videos'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left fullCenter"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </div>
+                <div class="breadcrumbs fullYCenter">
+                    <p><a routerLink="/videos">Videos</a> -> <a>{{video.title}}</a></p>
+                </div>
+            </div>
+            <div class="video-body">
+                <video preload="none" controls="false" *ngIf="video.url.length > 0" poster="{{video.thumbnail}}">
+                    <source type="video/mp4" src="{{video.url}}" />
+                </video>
+            </div>
+            <div class="video-info">
+                <div class="video-quick-look fullYCenter">
+                    <h1>{{video.title}}</h1>
+                    <div class="video-quick-look-info">
+                        <div class="author-wrapper">
+                            <div class="avatar reg-image"></div>
+                            <p class="fullYCenter">HillviewTV Team</p>
+                        </div>
+                        <h5 class="fullYCenter">{{video.display?.inserted_at}}</h5>
+                    </div>
+                </div>
+                <button class="fullYCenter actionButton" (click)="copyShareLink();">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> {{shareLinkButton}}</button>
+            </div>
+            <div class="video-metadata">
+                <p>{{video.description}}</p>
+            </div>
+        </div>
+    </div>
 </div>

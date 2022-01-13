@@ -25,3 +25,152 @@ video {
         height: calc(9px * 50);
     }
 }
+
+.header {
+    width: 100%;
+    height: 100px;
+    background: white;
+    border-bottom: 2px solid #f0f0f2;
+    display: flex;
+    .logo {
+        width: 200px;
+        height: 50px;
+        background-size: contain;
+        background-image: url('/assets/logo/hillviewTVLogo-Primary.png');
+        margin-left: 20px;
+    }
+}
+
+.page-body {
+    width: 100%;
+    height: calc(100% - 100px);
+    background: #f9f9fb;
+    overflow-y: auto;
+    .video-wrapper {
+        width: calc(100% - 100px);
+        max-width: 1200px;
+        height: fit-content;
+        padding-bottom: 200px;
+        .video-header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            .back-btn {
+                width: 50px;
+                height: 50px;
+                background: white;
+                border-radius: 15px;
+                border: 2px solid #f0f0f2;
+                position: relative;
+                cursor: pointer;
+            }
+            .breadcrumbs {
+                position: relative;
+                height: fit-content;
+                margin-left: 30px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                p, a {
+                    cursor: pointer;
+                    font-size: 17px;
+                }
+                p {
+                    a:nth-child(1) {
+                        color: #2d53b5;
+                    }
+
+                }
+            }
+        }
+        .video-body {
+            width: 100%;
+            padding-top: 56.25%;
+            height: 0px;
+            position: relative;
+            video {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .video-info {
+            width: 100%;
+            height: 190px;
+            border-bottom: 2px solid #f0f0f2;
+            .actionButton {
+                width: 160px;
+                height: 45px;
+                background: #3067f6;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: white;
+                padding-bottom: 10px;
+                font-size: 16px;
+                right: 0px;
+                border-radius: 6px;
+                transition: .3s;
+                &:hover {
+                    background: #2b55c5;
+                }
+                svg {
+                    width: 18px;
+                    padding-right: 5px;
+                    top: 6px;
+                    position: relative;
+                }
+            }
+            .video-quick-look {
+                width: fit-content;
+                height: fit-content;
+                h1 {
+                    font-size: 50px;
+                    font-weight: 500;
+                    letter-spacing: -2px;
+                }
+                .video-quick-look-info {
+                    margin-top: 15px;
+                    display: flex;
+                    height: 30px;
+                    width: 50%;
+                    .author-wrapper {
+                        display: flex;
+                        width: fit-content;
+                        .avatar {
+                            width: 30px;
+                            height: 30px;
+                            background-color: white;
+                            background-image: url('https://content.hillview.tv/images/mobile/default.jpg');
+                            border-radius: 50%;
+                            box-shadow: 2px 3px 4px 0px rgb(0 0 0 / 10%);
+                        }
+                        p {
+                            position: relative;
+                            height: fit-content;
+                            width: fit-content;
+                            margin-left: 10px;
+                            white-space: nowrap;
+                            font-weight: 400;
+                        }
+                    }
+                    h5 {
+                        position: relative;
+                        margin-left: 20px;
+                        white-space: nowrap;
+                        font-size: 15px;
+                        height: fit-content;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+        .video-metadata {
+            width: 100%;
+            height: fit-content;
+            padding: 35px 0px;
+        }
+    }
+}

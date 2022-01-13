@@ -5,8 +5,13 @@ export type Video = {
   thumbnail: string;
   inserted_at: string;
   url: string;
-  status: VideoStatus | null;
+  status: VideoStatus;
+  display?: VideoDisplay;
 };
+
+export type VideoDisplay = {
+  inserted_at?: string;
+}
 
 export type VideoStatus = {
   id: number;
@@ -22,7 +27,11 @@ export class Vid implements Video {
     this.thumbnail = '';
     this.inserted_at = '';
     this.url = '';
-    this.status = null;
+    this.status = {
+      id: 0,
+      name: '',
+      short_name: ''
+    };
   }
   id: number;
   title: string;
@@ -30,7 +39,7 @@ export class Vid implements Video {
   thumbnail: string;
   inserted_at: string;
   url: string;
-  status: VideoStatus | null;
+  status: VideoStatus;
 }
 
 export class VideoProvider {
