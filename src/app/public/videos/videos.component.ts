@@ -23,7 +23,7 @@ export class VideosComponent implements OnInit {
 
   async initialize(): Promise<void> {
     try {
-      const response: any = await this.request.get(`${environment.API_URL}/list/videos`);
+      const response: any = await this.request.get(`${environment.API_URL}/list/videos/20`);
       this.videos = (response.reverse() as Video[]);
     } catch(err) { 
       console.log(err);

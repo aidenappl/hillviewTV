@@ -39,7 +39,7 @@ export class WatchComponent implements OnInit {
 
   async getVideo(id: string): Promise<Video> {
     try {
-      const response: any = await this.request.get(`${environment.API_URL}/get/videoByID/${id}`)
+      const response: any = await this.request.get(`${environment.API_URL}/read/videoByID/${id}`)
       return response as Video;
     } catch(err) { 
       throw err;
