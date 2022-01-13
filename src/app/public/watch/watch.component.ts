@@ -29,7 +29,7 @@ export class WatchComponent implements OnInit {
           console.log(params.id);
           this.video = await this.getVideo(params.id);
         } else {
-          window.location.href = '/videos/v'
+          window.location.href = '/videos'
         }
       });
     } catch(err) { 
