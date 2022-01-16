@@ -4,8 +4,6 @@ I'm currently Part-Time teaching at Hillview Middle School and one of the bigges
 
 This is an Angular project using a go backend for handling local auth, upload -> mediaconvert -> s3 and token issuance. Primarily using this as a testbed for video content delivery and upload handling while also going to support the school. Needed a low-level production test for costs, usage and scalability.
 
-I challanged myself to get this entire stack done in one day, aiming to get it to a production ready state by 11/08 with periodic fixes, improvements, and changes past there. 
-
 ## See a live version
 
 Check out https://hillview.tv for a live version of the site. 
