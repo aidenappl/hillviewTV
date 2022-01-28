@@ -1,28 +1,13 @@
-video {
-    width: calc(16px * 90);
-    height: calc(9px * 90);
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-}
 
-@media screen and (max-width: 1700px) {
-    video {
-        width: calc(16px * 70);
-        height: calc(9px * 70);
+@media screen and (max-width: 600px) {
+    .video-wrapper {
+        width: calc(100% - 40px) !important;
     }
-}
-
-@media screen and (max-width: 1400px) {
-    video {
-        width: calc(16px * 50);
-        height: calc(9px * 50);
+    .video-quick-look h1 {
+        font-size: 35px !important;
     }
-}
-
-
-@media screen and (max-width: 900px) {
-    video {
-        width: 100%;
-        height: calc(9px * 50);
+    .actionButton {
+        display: none;
     }
 }
 
@@ -37,7 +22,7 @@ video {
         height: 50px;
         background-size: contain;
         background-image: url('/assets/logo/hillviewTVLogo-Primary.png');
-        margin-left: 20px;
+        margin-left: 5px;
     }
 }
 
@@ -67,13 +52,15 @@ video {
             .breadcrumbs {
                 position: relative;
                 height: fit-content;
-                margin-left: 30px;
+                margin-left: 10px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 p, a {
                     cursor: pointer;
                     font-size: 17px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
                 p {
                     a:nth-child(1) {
