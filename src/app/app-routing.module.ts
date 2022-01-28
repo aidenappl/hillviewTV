@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from './link.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,8 @@ const routes: Routes = [
   },
   {
     path: '**',
+    canLoad: [UserGuard],
+    canActivate: [UserGuard],
     loadChildren: () =>
       import('./public/err404/err404.module').then((m) => m.Err404Module),
   },

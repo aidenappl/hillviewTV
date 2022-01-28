@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavModule } from './components/navigation/navigation.module';
+import { UserGuard } from './link.guard';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NavModule } from './components/navigation/navigation.module';
   providers: [
     NavModule,
     VideoProvider,
+    UserGuard,
     RequestService,
     HttpClient
   ],
