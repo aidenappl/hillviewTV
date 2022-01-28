@@ -13,7 +13,7 @@ export class UserGuard {
 
     async isLink(link: string): Promise<any> {
         try {
-            const response: any = await this.request.get(`${environment.LINKS_URL}/links/v1.1/check/${link}`)
+            const response: any = await this.request.get(`${environment.LINKS_URL}/check/${link}`)
             if (response.destination) {
                 return {
                     exists: true,
