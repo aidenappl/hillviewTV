@@ -78,3 +78,15 @@ div {
     min-height: 100vh;
     min-height: -webkit-fill-available;
 }
+
+.vjs-seek-to-live-control {
+    display: none !important;
+}
+
+.vjs-picture-in-picture-control {
+    display: none !important;
+}
+
+.vjs-volume-control {
+    display: none !important;
+}

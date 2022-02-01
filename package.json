@@ -18,11 +18,17 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@types/video.js": "^7.3.30",
+    "@types/videojs": "^5.16.2",
+    "@types/videojs-hls-quality-selector": "^1.1.0",
+    "@videojs/http-streaming": "^2.13.1",
     "dayjs": "^1.10.7",
     "mediaelement": "^5.0.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "video.js": "^7.17.0",
+    "videojs-contrib-quality-levels": "^2.1.0",
+    "videojs-hls-quality-selector": "^1.1.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

@@ -4,7 +4,9 @@ import * as dayjs from 'dayjs';
 import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
-declare var videojs : any ;
+import videojs from 'video.js';
+import 'videojs-hls-quality-selector'
+
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
@@ -33,9 +35,23 @@ export class WatchComponent implements OnInit {
           this.video = await this.getVideo(params.id);
           await this.formatVideo();
           setTimeout(() => {
-            this.player = videojs(document.getElementById("video_1"), {}, () => {
-              console.log('video.js ready');
-            
+            var element = document.getElementById("video_1")
+            this.player = videojs((element as HTMLElement), {
+              controls: true,
+              autoplay: false,
+              muted: true,
+              html5: {
+                hls: {
+                  overrideNative: true
+                }
+              } 
+            });
+
+            this.player.hlsQualitySelector();
+
+            this.player.src({
+              src: this.video.url,
+              type: 'application/x-mpegURL'
             });
           })
         } else {
