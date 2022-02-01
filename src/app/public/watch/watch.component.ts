@@ -53,6 +53,10 @@ export class WatchComponent implements OnInit {
               src: this.video.url,
               type: 'application/x-mpegURL'
             });
+
+            this.player.on("play", () => {
+              this.player.muted( false ); 
+            })
           })
         } else {
           window.location.href = '/videos'
