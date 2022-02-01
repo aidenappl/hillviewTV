@@ -72,8 +72,7 @@
         }
         .video-body {
             width: 100%;
-            padding-top: 56.25%;
-            height: 0px;
+            height: fit-content;
             position: relative;
             video {
                 width: 100%;

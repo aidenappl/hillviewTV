@@ -4,7 +4,7 @@ import * as dayjs from 'dayjs';
 import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
-
+declare var videojs : any ;
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
@@ -15,6 +15,7 @@ export class WatchComponent implements OnInit {
   video: Video = new Vid();
 
   shareLinkButton = 'Share Video';
+  player: any ;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +32,12 @@ export class WatchComponent implements OnInit {
         if (params.id) {
           this.video = await this.getVideo(params.id);
           await this.formatVideo();
+          setTimeout(() => {
+            this.player = videojs(document.getElementById("video_1"), {}, () => {
+              console.log('video.js ready');
+            
+            });
+          })
         } else {
           window.location.href = '/videos'
         }
