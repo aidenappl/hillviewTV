@@ -5,7 +5,10 @@ import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
 import videojs from 'video.js';
-import 'videojs-hls-quality-selector'
+
+declare var require: any;
+require('videojs-contrib-quality-levels');
+require('videojs-http-source-selector');
 
 @Component({
   selector: 'app-watch',
@@ -37,22 +40,20 @@ export class WatchComponent implements OnInit {
           setTimeout(() => {
             var element = document.getElementById("video_1")
             this.player = videojs((element as HTMLElement), {
-              controls: true,
-              autoplay: false,
-              muted: true,
               html5: {
-                hls: {
+                vhs: {
                   overrideNative: true
-                }
+                },
+                useBandwidthFromLocalStorage: true
               } 
             });
-
-            this.player.hlsQualitySelector();
 
             this.player.src({
               src: this.video.url,
               type: 'application/x-mpegURL'
             });
+
+            this.player.httpSourceSelector();
 
             this.player.on("play", () => {
               this.player.muted( false ); 
