@@ -2,7 +2,10 @@
     <app-navigation></app-navigation>
     <div class="page-body">
         <div class="header-section">
-            <h2 class="fullCenter">Our Content</h2>
+            <div class="cent-box fullCenter">
+                <h2>Our Content</h2>
+                <input type="text" #search placeholder="Search HillviewTV" (keyup)="beginSearch($event)">
+            </div>
         </div>
         <div class="video-container">
             <div class="video-wrapper fullXCenter">
@@ -17,6 +20,8 @@
                     <div class="thumbnail reg-image" [ngStyle]="{'background-image': 'url('+video.thumbnail+')'}"></div>
                 </div>
             </div>
+            <button class="fullXCenter lmb" (click)="getNextGroup()" *ngIf="!bools.isSearching && videos.length > 0">Load More</button>
+            <button class="fullXCenter lmb" (click)="loadNextSearchable()" *ngIf="bools.isSearching && videos.length > 15">Show More</button>
         </div>
     </div>
 </div>
