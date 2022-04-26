@@ -80,7 +80,7 @@ export class WatchComponent implements OnInit {
   async formatVideo(): Promise<void> {
     try {
       this.video.display = {
-        inserted_at: dayjs(this.video.inserted_at).format("MMM DD, YYYY hh:mm A")
+        inserted_at: dayjs(this.video.inserted_at).format("MMM DD, YYYY")
       }
     } catch (error) {
       throw error;
