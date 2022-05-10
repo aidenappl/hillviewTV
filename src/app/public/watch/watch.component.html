@@ -1,12 +1,3 @@
-<!-- 
-<div class="page-wrapper">
-    <a href="/videos" style="top: 20px; margin-left: 20px; position: relative;">< Back</a>
-    <video preload="none" autoplay controls="false" class="fullCenter" *ngIf="video.url.length > 0">
-        <source type="video/mp4" src="{{video.url}}" />
-    </video>
-</div> -->
-
-
 <div class="page-wrapper">
     <div class="header">
         <div class="logo fullYCenter reg-image"></div>
@@ -14,7 +5,7 @@
     <div class="page-body">
         <div class="video-wrapper fullXCenter">
             <div class="video-header">
-                <div class="back-btn fullYCenter" [routerLink]="'/videos'">
+                <div class="back-btn fullYCenter" (click)="back()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left fullCenter"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </div>
                 <div class="breadcrumbs fullYCenter">
