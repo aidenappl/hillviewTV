@@ -3,7 +3,16 @@
     <div class="page-body">
         <div class="header-section">
             <div class="cent-box fullCenter">
-                <h2>Playlists</h2>
+                <h2>Our Playlists</h2>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="playlists-list fullXCenter">
+                <div class="playlist" *ngFor="let playlist of playlists" (click)="NavigateToPlaylist(playlist)">
+                    <div class="banner reg-image fullYCenter" [ngStyle]="{'background-image': 'url('+playlist.banner_image}"></div>
+                    <h1 class="fullYCenter">{{playlist.name}}</h1>
+                    <button class="fullYCenter">View</button>
+                </div>
             </div>
         </div>
     </div>
