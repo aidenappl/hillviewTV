@@ -74,13 +74,10 @@ export class VideosComponent implements OnInit {
     search: string
   ): Promise<Video[]> {
     try {
-      const response: any = await this.request.get(
+      const response = await this.request.get(
         `${environment.API_URL}/list/videos?limit=${limit}&offset=${offset}&search=${search}`
       );
-      if (response == null) {
-        return [];
-      }
-      return response as Video[];
+      return response.body as Video[];
     } catch (error) {
       throw error;
     }
@@ -88,6 +85,11 @@ export class VideosComponent implements OnInit {
 
   navigateToVideo(id: number): void {
     window.location.href = `/videos/v/${id}`;
+    return;
+  }
+
+  navigateToPlaylists(): void {
+    window.location.href = `/playlists`;
     return;
   }
 }

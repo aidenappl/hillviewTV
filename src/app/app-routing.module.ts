@@ -24,6 +24,23 @@ const routes: Routes = [
       import('./public/watch/watch.module').then((m) => m.WatchModule),
   },
   {
+    path: 'playlists',
+    loadChildren: () =>
+      import('./public/playlists/playlists.module').then(
+        (m) => m.PlaylistsModule
+      ),
+  },
+  {
+    path: 'playlist',
+    loadChildren: () =>
+      import('./public/playlists/playlist/playlist.module').then((m) => m.PlaylistModule),
+  },
+  {
+    path: 'playlist/:route',
+    loadChildren: () =>
+      import('./public/playlists/playlist/playlist.module').then((m) => m.PlaylistModule),
+  },
+  {
     path: '**',
     canLoad: [UserGuard],
     canActivate: [UserGuard],

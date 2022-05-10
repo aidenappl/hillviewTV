@@ -1,35 +1,36 @@
 /* eslint-disable max-len */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequestService {
-
   server = environment.API_URL;
 
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) {}
 
-  post(url: string, data: object) {
-    return new Promise((resolve, reject) => {
-      this.http.post(url, data).subscribe(
-        respon => resolve(respon),
-        error => reject(error)
-      );
-    });
+  async post(url: string, body: any): Promise<HttpResponse<any>> {
+    try {
+      const response = await this.http
+        .post(url, body, { observe: 'response' })
+        .toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  get(url: string) {
-    return new Promise((resolve, reject) => {
-      this.http.get(url).subscribe(
-        respon => resolve(respon),
-        error => reject(error)
-      );
-    });
-  }
+  async get(url: string): Promise<HttpResponse<any>> {
+    try {
+      const response = await this.http
+        .get(url, { observe: 'response' })
+        .toPromise();
 
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

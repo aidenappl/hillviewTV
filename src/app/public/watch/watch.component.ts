@@ -13,19 +13,15 @@ require('videojs-http-source-selector');
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
-  styleUrls: ['./watch.component.scss']
+  styleUrls: ['./watch.component.scss'],
 })
 export class WatchComponent implements OnInit {
-
   video: Video = new Vid();
 
   shareLinkButton = 'Share Video';
-  player: any ;
+  player: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private request: RequestService,
-  ) { }
+  constructor(private route: ActivatedRoute, private request: RequestService) {}
 
   ngOnInit(): void {
     this.initialize();
@@ -38,41 +34,41 @@ export class WatchComponent implements OnInit {
           this.video = await this.getVideo(params.id);
           await this.formatVideo();
           setTimeout(() => {
-            var element = document.getElementById("video_1")
-            this.player = videojs((element as HTMLElement), {
+            var element = document.getElementById('video_1');
+            this.player = videojs(element as HTMLElement, {
               html5: {
                 vhs: {
-                  overrideNative: true
+                  overrideNative: true,
                 },
-                useBandwidthFromLocalStorage: true
-              } 
+                useBandwidthFromLocalStorage: true,
+              },
             });
 
             this.player.src({
               src: this.video.url,
-              type: 'application/x-mpegURL'
+              type: 'application/x-mpegURL',
             });
 
             this.player.httpSourceSelector();
 
-            this.player.on("play", () => {
-              this.player.muted( false ); 
-            })
-          })
+            this.player.on('play', () => {
+              this.player.muted(false);
+            });
+          });
         } else {
-          window.location.href = '/videos'
+          window.location.href = '/videos';
         }
       });
-    } catch(err) { 
-     
-    }
+    } catch (err) {}
   }
 
   async getVideo(id: string): Promise<Video> {
     try {
-      const response: any = await this.request.get(`${environment.API_URL}/read/videoByID/${id}`)
-      return response as Video;
-    } catch(err) { 
+      const response = await this.request.get(
+        `${environment.API_URL}/read/videoByID/${id}`
+      );
+      return response.body as Video;
+    } catch (err) {
       throw err;
     }
   }
@@ -80,8 +76,8 @@ export class WatchComponent implements OnInit {
   async formatVideo(): Promise<void> {
     try {
       this.video.display = {
-        inserted_at: dayjs(this.video.inserted_at).format("MMM DD, YYYY")
-      }
+        inserted_at: dayjs(this.video.inserted_at).format('MMM DD, YYYY'),
+      };
     } catch (error) {
       throw error;
     }
@@ -89,11 +85,11 @@ export class WatchComponent implements OnInit {
 
   copyShareLink(): void {
     this.shareLinkButton = 'Copied Link!';
-    navigator.clipboard.writeText(`https://hillview.tv/videos/v/${this.video.id}`)
+    navigator.clipboard.writeText(
+      `https://hillview.tv/videos/v/${this.video.id}`
+    );
     setTimeout(() => {
       this.shareLinkButton = 'Share Video';
-    }, 2500)
+    }, 2500);
   }
-
-
 }

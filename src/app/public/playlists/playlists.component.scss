@@ -1,0 +1,38 @@
+.page-body {
+  width: 100%;
+  height: calc(100% - 110px);
+  top: 110px;
+  .header-section {
+    width: 100%;
+    height: 40%;
+    h2 {
+      font-size: 4rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+  .cent-box {
+    input {
+      margin-top: 45px;
+      width: 140%;
+      height: 56px;
+      border: 2px solid #e2e3ef;
+      padding-left: 20px;
+      box-sizing: border-box;
+      border-radius: 7px;
+      color: black;
+      font-size: 18px;
+      transform: translateX(-50%);
+      left: 50%;
+      position: relative;
+      outline: none;
+      transition: 0.2s;
+      &::placeholder {
+        color: #c0c2d1;
+      }
+      &:focus {
+        border: 2px solid #c1c2d6;
+      }
+    }
+  }
+}
