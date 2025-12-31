@@ -26,7 +26,6 @@ export class PlaylistComponent implements OnInit {
           if (params.route) {
             this.activatedLink = params.route;
             this.playlist = await this.getPlaylist();
-            console.log(this.playlist);
           } else {
             window.location.href = '/videos';
           }

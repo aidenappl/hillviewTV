@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as dayjs from 'dayjs';
 import { environment } from 'src/environments/environment';
@@ -64,7 +64,9 @@ export class WatchComponent implements OnInit {
           window.location.href = '/videos';
         }
       });
-    } catch (err) {}
+    } catch (err) {
+      console.error('Failed to initialize video player:', err);
+    }
   }
 
   async getVideo(id: string): Promise<Video> {

@@ -35,14 +35,13 @@ export class UserGuard {
     }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-        const url = state.url.slice(1)
-        console.log(url)
-        let link: any = await this.isLink(url)
+        const url = state.url.slice(1);
+        const link: any = await this.isLink(url);
         if (link.exists) {
-            window.location.href = link.destination
+            window.location.href = link.destination;
             return false;
         }
-        return true
+        return true;
     }
 
     async canLoad(): Promise<boolean> {
