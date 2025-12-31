@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Vid, Video } from 'src/providers/video.provider';
 import { RequestService } from 'src/services/http/request.service';
 import videojs from 'video.js';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 declare var require: any;
 require('videojs-contrib-quality-levels');
@@ -22,7 +22,7 @@ export class WatchComponent implements OnInit {
   shareLinkButton = 'Share Video';
   player: any;
 
-  constructor(private route: ActivatedRoute, private request: RequestService, private _location: Location) {}
+  constructor(private route: ActivatedRoute, private request: RequestService, private _location: Location) { }
 
   ngOnInit(): void {
     this.initialize();

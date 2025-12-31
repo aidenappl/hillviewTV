@@ -10,7 +10,7 @@ import { RequestService } from 'src/services/http/request.service';
   styleUrls: ['./playlist.component.scss'],
 })
 export class PlaylistComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private request: RequestService) {}
+  constructor(private route: ActivatedRoute, private request: RequestService) { }
 
   activatedLink: string = '';
   playlist: Playlist | null = null;

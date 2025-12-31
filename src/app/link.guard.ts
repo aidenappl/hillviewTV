@@ -9,7 +9,7 @@ export class UserGuard {
     constructor(
         private router: Router,
         private request: RequestService
-    ) {}
+    ) { }
 
     async isLink(link: string): Promise<any> {
         try {
@@ -47,5 +47,5 @@ export class UserGuard {
     async canLoad(): Promise<boolean> {
         return true
     }
-    
+
 }
